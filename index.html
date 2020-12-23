@@ -63,7 +63,6 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- 统计数据 -->
-    <div id="cnzz1"></div>
     <div id="cnzz" style="display:none">
         <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367"></script> -->
         <!-- <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
@@ -81,10 +80,7 @@
                 {
                     if (domainlist[i].domainname == getQueryVariable("domain"))
                     {
-                        document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
-                        //document.getElementById("cnzz1").innerHTML = domainlist[i].cnzz;
-
-                        //$("#cnzz").load("howsex.com.txt");
+                        //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
                         $("#cnzz").html(domainlist[i].cnzz);
 
                         // var myDivScript = document.getElementById("cnzz").getElementsByTagName("script").item(0);
