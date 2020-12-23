@@ -64,7 +64,10 @@
 
     <!-- 统计数据 -->
     <div id="cnzz1"></div>
-
+    <div id="cnzz" style="display:none">
+        <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367"></script> -->
+        <!-- <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
+    </div>
 
     <script>
         var xmlhttp = new XMLHttpRequest();
@@ -83,7 +86,7 @@
 
                         $("#cnzz").load("https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367");
                         //https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367
-                        $("#cnzz").load("https://c.cnzz.com/core.php?web_id=1279537367&t=z");
+                        //$("#cnzz").load("https://c.cnzz.com/core.php?web_id=1279537367&t=z");
                         var myDivScript = document.getElementById("cnzz").getElementsByTagName("script").item(0);
                         //var myDivScript = document.getElementById("cnzz").innerHTML;
                         //var myDivScript = domainlist[i].cnzz;
@@ -99,10 +102,7 @@
         xmlhttp.send();
     </script>
 
-    <div id="cnzz" style="display:none">
-        <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367"></script> -->
-        <!-- <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
-    </div>
+
 
 </body>
 
