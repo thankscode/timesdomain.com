@@ -84,30 +84,15 @@
                         document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
                         //document.getElementById("cnzz1").innerHTML = domainlist[i].cnzz;
 
-                        $("#cnzz").load("howsex.com.txt", function (responseTxt, statusTxt, xhr)
-                        {
-                            if (statusTxt == "success")
-                                alert("外部内容加载成功!");
-                            //window.eval(responseTxt);
-                            if (statusTxt == "error")
-                                alert("Error: " + xhr.status + ": " + xhr.statusText);
-                        });
+                        //$("#cnzz").load("howsex.com.txt");
+                        $("#cnzz").html(domainlist[i].cnzz);
 
-                        // $("#cnzz").load("https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367", function (responseTxt, statusTxt, xhr)
-                        // {
-                        //     if (statusTxt == "success")
-                        //         window.eval(responseTxt);
-                        //     if (statusTxt == "error")
-                        //         alert("Error: " + xhr.status + ": " + xhr.statusText);
-                        // });
-                        //https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367
-                        //$("#cnzz").load("https://c.cnzz.com/core.php?web_id=1279537367&t=z");
-                        var myDivScript = document.getElementById("cnzz").getElementsByTagName("script").item(0);
-                        //var myDivScript = document.getElementById("cnzz").innerHTML;
-                        //var myDivScript = domainlist[i].cnzz;
-                        var newScript = document.createElement("SCRIPT");
-                        newScript.innerHTML = myDivScript;
-                        document.getElementsByTagName("HEAD").item(0).appendChild(myDivScript);
+                        // var myDivScript = document.getElementById("cnzz").getElementsByTagName("script").item(0);
+                        // //var myDivScript = document.getElementById("cnzz").innerHTML;
+                        // //var myDivScript = domainlist[i].cnzz;
+                        // var newScript = document.createElement("SCRIPT");
+                        // newScript.innerHTML = myDivScript;
+                        // document.getElementsByTagName("HEAD").item(0).appendChild(myDivScript);
 
                     }
                 }
