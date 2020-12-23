@@ -31,7 +31,8 @@
 
         <section class="jumbotron text-center">
             <div class="container">
-                <h1 id="forsale" class="display-1">Domain Name</h1> <h1>is for sale</h1>
+                <h1 id="forsale" class="display-1">Domain Name</h1>
+                <h1>is for sale</h1>
                 <p class="lead text-muted">Get your domain name TODAY, we make it easy ! 您正在访问的域名可以转让出售！</p>
                 <p>
                     <a id="sedolink" href="https://sedo.com/order/ofbiz/buynow_payment/whylinux.com" target="_blank"
@@ -46,12 +47,12 @@
 
 
     <script>
-		
-		var domainname = getQueryVariable("domain");
+
+        var domainname = getQueryVariable("domain");
 
         document.getElementById("forsale").innerHTML = "<strong>" + domainname + "</strong>";
         document.getElementById("sedolink").href = "https://sedo.com/search/details/?domain=" + domainname;
-		document.title = domainname; //把本页面标题改为域名
+        document.title = domainname; //把本页面标题改为域名
 
 
     </script>
@@ -61,37 +62,44 @@
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	<!-- 统计数据 -->
-	<div id="cnzz1" ></div>
-	
+    <!-- 统计数据 -->
+    <div id="cnzz1"></div>
 
-	<script>
-		var xmlhttp = new XMLHttpRequest();
-		xmlhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				domainlist = JSON.parse(this.responseText);
-				
-				for (i = 0; i < domainlist.length; i++) {
-					if(domainlist[i].domainname == getQueryVariable("domain"))
-					{
-						//document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
-						document.getElementById("cnzz1").innerHTML = domainlist[i].cnzz;
-						
-						//$("#cnzz").load("https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367");
 
-					}
-				}
-			}
-		};
-		xmlhttp.open("GET", "./timesdomain.json", true);
-		xmlhttp.send();
-	</script>
-	
-	<div id="cnzz" style="display:none">
-		<script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367"></script>
-		<!-- <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
-	</div>
+    <script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function ()
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                domainlist = JSON.parse(this.responseText);
+
+                for (i = 0; i < domainlist.length; i++)
+                {
+                    if (domainlist[i].domainname == getQueryVariable("domain"))
+                    {
+                        //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
+                        //document.getElementById("cnzz1").innerHTML = domainlist[i].cnzz;
+
+                        //$("#cnzz").load("https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367");
+                        //var myDivScript = document.getElementById("myDiv").getElementsByTagName("SCRIPT").item(0);
+                        var myDivScript = domainlist[i].cnzz;
+                        var newScript = document.createElement("SCRIPT");
+                        newScript.innerHTML = myDivScript.innerHTML;
+                        document.getElementsByTagName("HEAD").item(0).appendChild(newScript);
+
+                    }
+                }
+            }
+        };
+        xmlhttp.open("GET", "./timesdomain.json", true);
+        xmlhttp.send();
+    </script>
+
+    <div id="cnzz" style="display:none">
+        <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367"></script> -->
+        <!-- <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
+    </div>
 
 </body>
 
