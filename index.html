@@ -70,15 +70,20 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 	<!-- 统计数据 -->
-	<div id="cnzz" style="display:none"><script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div>
-	<!-- <div id="cnzz2" style="display:none"></div> -->
-	<h1 id="cnzz2" >Domain Name</h1>
+	<!-- <div id="cnzz" style="display:none"><script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
+	<div id="cnzz" style="display:none"></div>
+
 	<script>
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
+			if (this.readyState == 4 && this.status == 200) 
+			{
 				domainlist = JSON.parse(this.responseText);
-				document.getElementById("cnzz2").innerHTML = domainlist[4].cnzz;
+				
+				for (i = 0; i < domainlist.length; i++) {
+					if(domainlist[i].domainname == getQueryVariable("domain"))
+						document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
+				}
 			}
 		};
 		xmlhttp.open("GET", "./timesdomain.json", true);
