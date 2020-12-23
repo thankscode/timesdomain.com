@@ -46,9 +46,12 @@
 
 
     <script>
+		
+		var domainname = getQueryVariable("domain");
 
-        document.getElementById("forsale").innerHTML = "<strong>" + getQueryVariable("domain") + "</strong>";
-        document.getElementById("sedolink").href = "https://sedo.com/search/details/?domain=" + getQueryVariable("domain");
+        document.getElementById("forsale").innerHTML = "<strong>" + domainname + "</strong>";
+        document.getElementById("sedolink").href = "https://sedo.com/search/details/?domain=" + domainname;
+		document.title = domainname; //把本页面标题改为域名
 
 
 		var xmlhttp = new XMLHttpRequest();
@@ -70,7 +73,6 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 	<!-- 统计数据 -->
-	<!-- <div id="cnzz" style="display:none"><script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
 	<div id="cnzz" style="display:none"></div>
 
 	<script>
