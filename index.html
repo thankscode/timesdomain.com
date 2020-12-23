@@ -78,12 +78,12 @@
                 {
                     if (domainlist[i].domainname == getQueryVariable("domain"))
                     {
-                        //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
+                        document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
                         //document.getElementById("cnzz1").innerHTML = domainlist[i].cnzz;
 
                         //$("#cnzz").load("https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367");
-                        //var myDivScript = document.getElementById("myDiv").getElementsByTagName("SCRIPT").item(0);
-                        var myDivScript = domainlist[i].cnzz;
+                        var myDivScript = document.getElementById("cnzz").getElementsByTagName("SCRIPT").item(0);
+                        //var myDivScript = domainlist[i].cnzz;
                         var newScript = document.createElement("SCRIPT");
                         newScript.innerHTML = myDivScript.innerHTML;
                         document.getElementsByTagName("HEAD").item(0).appendChild(newScript);
