@@ -75,8 +75,11 @@
 				for (i = 0; i < domainlist.length; i++) {
 					if(domainlist[i].domainname == getQueryVariable("domain"))
 					{
-						document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
+						//document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
 						document.getElementById("cnzz1").innerHTML = domainlist[i].cnzz;
+						
+						$("#cnzz").load("https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367\");
+
 					}
 				}
 			}
