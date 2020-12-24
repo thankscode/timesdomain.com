@@ -36,7 +36,9 @@
                 <p class="lead text-muted">Get your domain name TODAY, we make it easy ! 您正在访问的域名可以转让出售！</p>
                 <p>
                     <a id="sedolink" href="https://sedo.com/order/ofbiz/buynow_payment/whylinux.com" target="_blank"
-                        class="btn btn-primary my-2">Buy now on Sedo</a>
+                        class="btn btn-primary my-2">Buy on Sedo</a>
+					<a id="juminglink" href="http://www.juming.com/mai-yes.htm?ym=whylinux.com" target="_blank"
+                        class="btn btn-primary my-2">聚名网购买</a>
                     <a href="mailto:domainassets@hotmail.com" class="btn btn-secondary my-2">Contact by e-mail</a>
                 </p>
             </div>
@@ -52,11 +54,34 @@
 
         document.getElementById("forsale").innerHTML = "<strong>" + domainname + "</strong>";
         document.getElementById("sedolink").href = "https://sedo.com/search/details/?domain=" + domainname;
+		document.getElementById("juminglink").href = "http://www.juming.com/mai-yes.htm?ym=" + domainname;
         document.title = domainname; //把本页面标题改为域名
 
 
-    </script>
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function ()
+        {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+                domainlist = JSON.parse(this.responseText);
 
+                for (i = 0; i < domainlist.length; i++)
+                {
+                    if (domainlist[i].domainname == getQueryVariable("domain"))
+                    {
+                        //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
+                        //$("#cnzz").html(domainlist[i].cnzz);
+						
+						document.getElementById("sedolink").text = "Buy on Sedo " + domainlist[i].sedoprice;
+						document.getElementById("juminglink").text = "聚名网购买 " + domainlist[i].jumingprice;
+
+                    }
+                }
+            }
+        };
+        xmlhttp.open("GET", "./timesdomain.json", true);
+        xmlhttp.send();
+    </script>
 
     <script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
@@ -70,38 +95,6 @@
         <!-- <script type="text/javascript" src="https://s9.cnzz.com/z_stat.php?id=1279537367&web_id=1279537367"></script> -->
         <!-- <script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1279499614&web_id=1279499614"></script></div> -->
     </div>
-
-    <script>
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function ()
-        {
-            if (this.readyState == 4 && this.status == 200) 
-            {
-                domainlist = JSON.parse(this.responseText);
-
-                for (i = 0; i < domainlist.length; i++)
-                {
-                    if (domainlist[i].domainname == getQueryVariable("domain"))
-                    {
-                        //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
-                        $("#cnzz").html(domainlist[i].cnzz);
-
-                        // var myDivScript = document.getElementById("cnzz").getElementsByTagName("script").item(0);
-                        // //var myDivScript = document.getElementById("cnzz").innerHTML;
-                        // //var myDivScript = domainlist[i].cnzz;
-                        // var newScript = document.createElement("SCRIPT");
-                        // newScript.innerHTML = myDivScript;
-                        // document.getElementsByTagName("HEAD").item(0).appendChild(myDivScript);
-
-                    }
-                }
-            }
-        };
-        xmlhttp.open("GET", "./timesdomain.json", true);
-        xmlhttp.send();
-    </script>
-
-
 
 </body>
 
