@@ -78,6 +78,11 @@
                         //$("#cnzz").html(domainlist[i].cnzz);
 						
 						document.getElementById("sedolink").text = "Buy on Sedo " + domainlist[i].sedoprice;
+						if("" == domainlist[i].jumingprice)
+						{
+						document.getElementById("juminglink").text = "";
+						}
+						else
 						document.getElementById("juminglink").text = "聚名网购买 " + domainlist[i].jumingprice;
 
                     }
