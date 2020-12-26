@@ -31,7 +31,7 @@
 <!--jumbotron-->
         <section class="text-center align-middle" style="background-color:#e9ecef">
             <div class="container" style="height:50px">
-                <span  class="align-middle" style="display:inline;top:20%;position:relative;" id="forsale" ></span >
+                <span  class="align-middle font-weight-bold" style="display:inline;top:20%;position:relative;" id="forsale" ></span >
                 <span  class="align-middle" style="display:inline;top:20%;position:relative;" > | This domain is for sale</span >
                 <!-- <p class="lead text-muted">Get your domain name TODAY, we make it easy ! 您正在访问的域名可以转让出售！</p> -->
                 <p class="float-right">
@@ -115,10 +115,10 @@
 
         var domainname = getQueryVariable("domain");
 
-        document.getElementById("forsale").innerHTML = "<strong>" + domainname[0].toUpperCase()+domainname.substr(1) + "</strong>";
+        document.getElementById("forsale").innerHTML = domainname[0].toUpperCase()+domainname.substr(1);
         document.getElementById("sedolink").href = "https://sedo.com/search/details/?domain=" + domainname;
 		document.getElementById("juminglink").href = "http://www.juming.com/mai-yes.htm?ym=" + domainname;
-        document.title = domainname; //把本页面标题改为域名
+        document.title = domainname + " is for sale"; //把本页面标题改为域名
 
 		$.getJSON("timesdomain.json",function(data){
 		
@@ -126,7 +126,7 @@
 				var domainlist = data;
                 for (i = 0; i < domainlist.length; i++)
                 {
-                    if (domainlist[i].domainname == getQueryVariable("domain"))
+                    if (domainlist[i].domainname == domainname)
                     {
                         //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
                         //$("#cnzz").html(domainlist[i].cnzz);
