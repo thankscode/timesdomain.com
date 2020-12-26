@@ -120,9 +120,10 @@
 		document.getElementById("juminglink").href = "http://www.juming.com/mai-yes.htm?ym=" + domainname;
         document.title = domainname; //把本页面标题改为域名
 
-		$.get("timesdomain.json",function(data,status){
+		$.getJSON("timesdomain.json",function(data){
 		
-		        domainlist = JSON.parse(data);
+		        //domainlist = JSON.parse(data);
+				var domainlist = data;
                 for (i = 0; i < domainlist.length; i++)
                 {
                     if (domainlist[i].domainname == getQueryVariable("domain"))
@@ -132,6 +133,7 @@
 						
 						document.getElementById("sedolink").text = "Buy on Sedo " + domainlist[i].sedoprice;
 						document.getElementById("juminglink").text = "聚名网购买 " + domainlist[i].jumingprice;
+						break;
 
                     }
                 }
