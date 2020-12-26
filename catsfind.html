@@ -120,14 +120,9 @@
 		document.getElementById("juminglink").href = "http://www.juming.com/mai-yes.htm?ym=" + domainname;
         document.title = domainname; //把本页面标题改为域名
 
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function ()
-        {
-            if (this.readyState == 4 && this.status == 200) 
-            {
-                domainlist = JSON.parse(this.responseText);
-
+		$.get("timesdomain.json",function(data,status){
+		
+		        domainlist = JSON.parse(data);
                 for (i = 0; i < domainlist.length; i++)
                 {
                     if (domainlist[i].domainname == getQueryVariable("domain"))
@@ -140,10 +135,31 @@
 
                     }
                 }
-            }
-        };
-        xmlhttp.open("GET", "./timesdomain.json", true);
-        xmlhttp.send();
+		});
+  
+        //var xmlhttp = new XMLHttpRequest();
+        //xmlhttp.onreadystatechange = function ()
+        //{
+        //    if (this.readyState == 4 && this.status == 200) 
+        //    {
+        //        domainlist = JSON.parse(this.responseText);
+		//
+        //        for (i = 0; i < domainlist.length; i++)
+        //        {
+        //            if (domainlist[i].domainname == getQueryVariable("domain"))
+        //            {
+        //                //document.getElementById("cnzz").innerHTML = domainlist[i].cnzz;
+        //                //$("#cnzz").html(domainlist[i].cnzz);
+		//				
+		//				document.getElementById("sedolink").text = "Buy on Sedo " + domainlist[i].sedoprice;
+		//				document.getElementById("juminglink").text = "聚名网购买 " + domainlist[i].jumingprice;
+		//
+        //            }
+        //        }
+        //    }
+        //};
+        //xmlhttp.open("GET", "./timesdomain.json", true);
+        //xmlhttp.send();
     </script>
 
     <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
