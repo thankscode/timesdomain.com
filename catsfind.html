@@ -29,7 +29,7 @@
 <div id="priceinfo">
 </div>
 
-<textarea id="priceinfo_textValue" style="display:none;">
+<textarea id="price_site_textValue" style="display:none;">
     <main role="main">
         <section class="text-center align-middle" style="background-color:#e9ecef">
             <div class="container" style="height:50px">
@@ -48,10 +48,35 @@
     </main>
 </textarea>
 
+<textarea id="price_page_textValue" style="display:none;">
+    <main role="main">
+        <section class="jumbotron text-center">
+            <div class="container">
+                <h1 id="forsale" class="display-1"></h1>
+                <h1>This domain is for sale</h1>
+                <p class="lead text-muted">Get your domain name TODAY, we make it easy ! 您正在访问的域名可以转让出售！</p>
+                <p>
+                    <a id="sedolink" href="https://sedo.com/order/ofbiz/buynow_payment/whylinux.com" target="_blank"
+                        class="btn btn-primary my-2">Buy on Sedo</a>
+					<a id="juminglink" href="http://www.juming.com/mai-yes.htm?ym=whylinux.com" target="_blank"
+                        class="btn btn-primary my-2">聚名网购买</a>
+                    <a href="mailto:domainassets@hotmail.com" class="btn btn-secondary my-2">Contact by e-mail</a>
+                </p>
+            </div>
+        </section>
+    </main>
+</textarea>
+
     <script>
         var domainname = getQueryVariable("domain");
-
-		$("#priceinfo").html($("#priceinfo_textValue").text()); 
+		if(domainname == "catsfind.com")
+		{
+			$("#priceinfo").html($("#price_site_textValue").text()); 
+		}
+		else
+		{
+			$("#priceinfo").html($("#price_page_textValue").text()); 
+		}
 		//$("#priceinfo").html(document.getElementById("priceinfo_textValue").value);
 	</script>
 
