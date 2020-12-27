@@ -26,8 +26,7 @@
 
 <body>
 
-<div id="priceinfo">
-</div>
+<div id="priceinfo"></div>
 
 <textarea id="price_site_textValue" style="display:none;">
     <main role="main">
@@ -100,6 +99,9 @@
 <!-- <iframe name="includepage" width=100% height=100% marginwidth=0 marginheight=0 frameborder="no" border="0"  src="catsfind.com.html" ></iframe>  -->
 <!-- <object style="border:0px" type="text/x-scriptlet" data="catsfind.com.html" width=100% height=100%></object> -->
 
+<div id="footerdiv"></div>
+
+<textarea id="foot_site_textValue" style="display:none;">
 <div class="container-fluit">
 <footer class="pt-4 my-md-5 pt-md-5 border-top" style="background-color:#e9ecef">
     <div class="row" style="width:80%;margin:auto">
@@ -142,6 +144,53 @@
     </div>
   </footer>
 </div>
+</textarea>
+
+<textarea id="foot_page_textValue" style="display:none;">
+<div class="container-fluit">
+<footer class="pt-4 my-md-5 pt-md-5 border-top" style="background-color:#e9ecef">
+    <div class="row" style="width:80%;margin:auto">
+      <div class="col-12 col-md">
+        <img class="mb-2" src="favicon.ico" alt="" width="24" height="24">
+        <small class="d-block mb-3 text-muted">© 2017-2020</small>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Cool stuff</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+        </ul>
+      </div>
+	  <p class="float-right">
+      <a href="#">Back to top</a>
+    </p>
+    </div>
+  </footer>
+</div>
+</textarea>
+
+    <script>
+        var domainname = getQueryVariable("domain");
+		if(domainname == "catsfind.com")
+		{
+			$("#footerdiv").html($("#foot_site_textValue").text()); 
+		}
+		else
+		{
+			$("#footerdiv").html($("#foot_page_textValue").text()); 
+		}
+	</script>
 
 	<script>
 		//插入所有复用代码
