@@ -20,6 +20,7 @@
             }
             return (false);
         }
+		var domainname = getQueryVariable("domain");
     </script>
 
 </head>
@@ -67,7 +68,7 @@
 </textarea>
 
     <script>
-        var domainname = getQueryVariable("domain");
+        
 		if(domainname == "catsfind.com")
 		{
 			$("#priceinfo").html($("#price_site_textValue").text()); 
