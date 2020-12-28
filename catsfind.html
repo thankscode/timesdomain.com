@@ -21,9 +21,18 @@
             return (false);
         }
 		var domainname = getQueryVariable("domain");
-    </script>
-    <script>
+
 		var sitedomain_arr = ["catsfind.com","whylinux.com"];
+		//如果预定义数组中包含该域名则用site填充页面
+		var domain_found_insite = false;
+		for (var i=0;i<sitedomain_arr.length;i++)
+		{ 
+			if(domainname == sitedomain_arr[i])
+			{
+				domain_found_insite = true;
+				break;
+			}
+		}
     </script>
 </head>
 
@@ -70,16 +79,7 @@
 </textarea>
 
     <script>
-    //如果预定义数组中包含该域名则用site填充页面
-	var domain_found_insite = false;
-	for (var i=0;i<sitedomain_arr.length;i++)
-	{ 
-		if(domainname == sitedomain_arr[i])
-		{
-			domain_found_insite = true;
-			break;
-		}
-	}
+
 	if(true == domain_found_insite)
 	{
 		$("#priceinfo").html($("#price_site_textValue").text()); 
