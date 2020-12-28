@@ -71,18 +71,20 @@
 
     <script>
     //如果预定义数组中包含该域名则用site填充页面
-	var domain_found = false;
+	var domain_found_insite = false;
 	for (var i=0;i<sitedomain_arr.length;i++)
 	{ 
 		if(domainname == sitedomain_arr[i])
 		{
-			$("#priceinfo").html($("#price_site_textValue").text()); 
 			domain_found = true;
 			break;
 		}
 	}
-	if(false == domain_found)
+	if(true == domain_found_insite)
 	{
+		$("#priceinfo").html($("#price_site_textValue").text()); 
+	}
+	else{
 		$("#priceinfo").html($("#price_page_textValue").text()); 
 	}
 
@@ -101,8 +103,8 @@
 <div id="include1" class="include" file=""></div>
 
     <script>
-        var domainname = getQueryVariable("domain");
-		if(domainname == "catsfind.com")
+		//if(domainname == "catsfind.com")
+		if(true == domain_found_insite)
 		{
 			$("#include1").attr("file", domainname + "/" +domainname + ".html"); //catsfind.com/catsfind.com.html
 		}
@@ -198,8 +200,9 @@
 </textarea>
 
     <script>
-        var domainname = getQueryVariable("domain");
-		if(domainname == "catsfind.com")
+        //var domainname = getQueryVariable("domain");
+		//if(domainname == "catsfind.com")
+		if(true == domain_found_insite)
 		{
 			$("#footerdiv").html($("#foot_site_textValue").text()); 
 		}
